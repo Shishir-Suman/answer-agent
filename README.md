@@ -68,9 +68,9 @@ A conversational AI agent that can help with calculations, keynote presentations
 
 - `POST /api/query`: Accepts a JSON body with a `query` field containing the user's question.
 
-## Tools Available
+## MCP Servers Available
 
-The agent has access to the following tools:
+The agent has access to the following mcp servers:
 - Calculator: For mathematical calculations
 - Keynote: For presentation-related tasks
 - Email: For email-related functionality
