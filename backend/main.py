@@ -68,14 +68,6 @@ async def process_query(request: QueryRequest):
             content={"error": f"Failed to process query: {str(e)}"}
         )
 
-# Serve the frontend static files
-@app.on_event("startup")
-async def startup_event():
-    if FRONTEND_DIR.exists():
-        app.mount("/", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="frontend")
-    else:
-        logger.warning(f"Frontend directory not found at {FRONTEND_DIR}. Frontend will not be served.")
-
 async def run_agent_loop(system_instruction: str, initial_query: str, mcp_servers=None) -> types.Content:
     """
     Executes an agent loop that processes user queries, interacts with tools, and generates responses 
